@@ -26,4 +26,4 @@ httpd
 ## SLEEP ENDLESS
 ####################################################################
 
-sleep infinity
+while true; do sleep 10; done

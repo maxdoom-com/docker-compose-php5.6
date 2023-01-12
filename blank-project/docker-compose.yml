@@ -1,7 +1,7 @@
 version: "3"
 services:
     application:
-        build: https://github.com/maxdoom-com/docker-compose-alpine3.14-php7.4-mysql10.5-apache-graphicsmagick.git
+        build: https://github.com/maxdoom-com/docker-compose-php5.6.git
         env_file: .env
         ports:
             - "80:80"

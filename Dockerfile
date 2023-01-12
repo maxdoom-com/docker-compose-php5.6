@@ -1,6 +1,7 @@
-FROM alpine:3.14
+FROM alpine:3.1
 
-RUN apk add \
+RUN apk update
+RUN apk add             \
     bash                \
     mc                  \
     apache2             \
@@ -8,39 +9,44 @@ RUN apk add \
     apache2-proxy       \
     apache2-proxy-html  \
     mysql-client        \
-    graphicsmagick      \
-    php7                \
-    php7-apache2        \
-    php7-pdo_mysql      \
-    php7-mysqli         \
-    php7-mysqlnd        \
-    php7-pdo_sqlite     \
-    php7-session        \
-    php7-gd             \
-    php7-xml            \
-    php7-simplexml      \
-    php7-xmlreader      \
-    php7-xmlwriter      \
-    php7-zip            \
-    php7-intl           \
-    php7-fileinfo       \
-    php7-iconv          \
-    php7-tokenizer      \
-    php7-phar           \
-    php7-curl           \
-    php7-json           \
-    php7-posix          \
-    php7-pcntl          \
-    php7-mbstring       \
-    php7-gmp            \
-    php7-bcmath         \
-    php7-opcache        \
-    php7-pecl-apcu      \
-    php7-ctype          #
+    postgresql-client   \
+    php                 \
+    php-apache2         \
+    php-pdo_mysql       \
+    php-mysqli          \
+    php-pdo_sqlite      \
+    php-gd              \
+    php-xml             \
+    php-xmlreader       \
+    php-zip             \
+    php-intl            \
+    php-iconv           \
+    php-phar            \
+    php-curl            \
+    php-json            \
+    php-posix           \
+    php-gmp             \
+    php-bcmath          \
+    php-opcache         \
+    php-pdo_pgsql       \
+    php-zip             \
+    php-opcache         \
+    php-apcu            \
+    php-gettext         \
+    php-gd              \
+    php-memcache        \
+    php-openssl         \
+    php-soap            \
+    php-zlib            \
+    imagemagick         #
+
+# fix a bug: AH00526: Syntax error on line 43 of /etc/apache2/conf.d/ssl.conf: Invalid command 'SSLMutex', perhaps misspelled or defined by a module not included in the server configuration
+COPY etc/apache2/conf.d/ssl.conf /etc/apache2/conf.d/ssl.conf
+COPY etc/apache2/httpd.conf /etc/apache2/httpd.conf
 
 # fix a dompdf problem...
-RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.13/community/ gnu-libiconv=1.15-r3
-ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so
+# RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.13/community/ gnu-libiconv=1.15-r3
+# ENV LD_PRELOAD /usr/lib/preloadable_libiconv.so
 
 
 COPY home/you /home/you
