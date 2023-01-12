@@ -11,7 +11,7 @@ Access
 - Website: https://localhost.direct/
 
 
-Predefined database condig
+Predefined database config
 ========================================================================
 
 See your .env - file.
