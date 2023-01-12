@@ -54,7 +54,7 @@ COPY srv/ssl /srv/ssl
 COPY srv/adminer /srv/adminer
 COPY etc/apache2/conf.d/vhosts.d /etc/apache2/conf.d/vhosts.d
 
-RUN ln -s /usr/lib/libxml2.so.2 /usr/lib/libxml2.so
+# RUN ln -s /usr/lib/libxml2.so.2 /usr/lib/libxml2.so
 # Syntax error on line 13 of /etc/apache2/conf.d/proxy-html.conf:
 # Cannot load /usr/lib/libxml2.so into server: Error loading shared library /usr/lib/libxml2.so: No such file or directory
 
