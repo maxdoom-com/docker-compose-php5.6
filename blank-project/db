@@ -1,0 +1,9 @@
+#!/bin/sh
+
+CONTAINER=$(basename $(pwd))
+
+if [ $# -eq 0 ]; then
+    docker exec -it ${CONTAINER}_database_1 bash -c 'su you'
+else
+    docker exec -it ${CONTAINER}_database_1 "$@"
+fi

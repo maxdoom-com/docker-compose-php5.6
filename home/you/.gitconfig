@@ -1,0 +1,7 @@
+[user]
+	name = You
+	email = you@localhost.direct
+[init]
+	defaultBranch = master
+[pull]
+	rebase = false

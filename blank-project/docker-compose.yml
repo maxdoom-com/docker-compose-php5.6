@@ -1,0 +1,21 @@
+version: "3"
+services:
+    application:
+        build: https://github.com/maxdoom-com/docker-compose-alpine3.14-php7.4-mysql10.5-apache-graphicsmagick.git
+        env_file: .env
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./html/:/srv/index/
+            - ./etc/custom/php.ini:/etc/php7/conf.d/custom-php.ini
+            - ./etc/custom/apache.conf:/etc/apache2/conf.d/custom-apache.conf
+    database:
+        build: https://github.com/maxdoom-com/docker-compose-mysql10.5.git
+        env_file: .env
+        ports:
+            - "3306:3306"
+        restart: unless-stopped
+        volumes:
+            - ./mysql:/var/lib/mysql
+            - ./etc/custom/mariadb.conf:/etc/my.cnf.d/custom-mariadb.conf
