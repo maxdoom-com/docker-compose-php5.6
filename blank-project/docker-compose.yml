@@ -10,6 +10,7 @@ services:
             - ./html/:/srv/index/
             - ./etc/custom/php.ini:/etc/php7/conf.d/custom-php.ini
             - ./etc/custom/apache.conf:/etc/apache2/conf.d/custom-apache.conf
+            - ./etc/apache2/conf.d/vhosts.d:/etc/apache2/conf.d/vhosts.d
     database:
         build: https://github.com/maxdoom-com/docker-compose-mysql10.5.git
         env_file: .env
