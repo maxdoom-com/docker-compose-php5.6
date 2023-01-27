@@ -38,7 +38,9 @@ RUN apk add             \
     php-openssl         \
     php-soap            \
     php-zlib            \
-    imagemagick         #
+    imagemagick         \
+    python3             \
+    py3-virtualenv      #
 
 # fix a bug: AH00526: Syntax error on line 43 of /etc/apache2/conf.d/ssl.conf: Invalid command 'SSLMutex', perhaps misspelled or defined by a module not included in the server configuration
 COPY etc/apache2/conf.d/ssl.conf /etc/apache2/conf.d/ssl.conf
