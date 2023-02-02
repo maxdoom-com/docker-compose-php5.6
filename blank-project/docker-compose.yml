@@ -20,3 +20,11 @@ services:
         volumes:
             - ./mysql:/var/lib/mysql
             - ./etc/custom/mariadb.conf:/etc/my.cnf.d/custom-mariadb.conf
+    mailcatcher:
+        build: https://github.com/maxdoom-com/docker-compose-mailcatcher.git
+        env_file: .env
+        ports:
+            - "8080:8080"
+            - "25:25"
+        volumes:
+            - ./mails/:/srv/mails/
