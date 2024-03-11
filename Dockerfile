@@ -38,13 +38,10 @@ RUN apk add             \
     php-openssl         \
     php-soap            \
     php-zlib            \
-    imagemagick         \
-    python3             \
-    py3-virtualenv      #
+    imagemagick         #
 
 # fix a bug: AH00526: Syntax error on line 43 of /etc/apache2/conf.d/ssl.conf: Invalid command 'SSLMutex', perhaps misspelled or defined by a module not included in the server configuration
 COPY etc/apache2/conf.d/ssl.conf /etc/apache2/conf.d/ssl.conf
-COPY etc/apache2/httpd.conf /etc/apache2/httpd.conf
 
 # fix a dompdf problem...
 # RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.13/community/ gnu-libiconv=1.15-r3
@@ -54,7 +51,6 @@ COPY etc/apache2/httpd.conf /etc/apache2/httpd.conf
 COPY home/you /home/you
 COPY srv/ssl /srv/ssl
 COPY srv/adminer /srv/adminer
-COPY etc/apache2/conf.d/vhosts.d /etc/apache2/conf.d/vhosts.d
 
 # RUN ln -s /usr/lib/libxml2.so.2 /usr/lib/libxml2.so
 # Syntax error on line 13 of /etc/apache2/conf.d/proxy-html.conf:
