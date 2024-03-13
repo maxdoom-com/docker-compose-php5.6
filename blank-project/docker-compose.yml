@@ -3,9 +3,6 @@ services:
     application:
         build: https://github.com/maxdoom-com/docker-compose-php5.6.git
         env_file: .env
-        ports:
-            - "80:80"
-            - "443:443"
         volumes:
             - ./html/:/srv/index/
             - ./etc/custom/php.ini:/etc/php/conf.d/custom-php.ini
@@ -14,9 +11,6 @@ services:
     database:
         build: https://github.com/maxdoom-com/docker-compose-mysql10.5.git
         env_file: .env
-        ports:
-            - "3306:3306"
-        restart: unless-stopped
         volumes:
             - ./mysql:/var/lib/mysql
             - ./etc/custom/mariadb.conf:/etc/my.cnf.d/custom-mariadb.conf
