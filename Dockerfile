@@ -43,6 +43,7 @@ RUN apk add             \
 
 # fix a bug: AH00526: Syntax error on line 43 of /etc/apache2/conf.d/ssl.conf: Invalid command 'SSLMutex', perhaps misspelled or defined by a module not included in the server configuration
 COPY etc/apache2/conf.d/ssl.conf /etc/apache2/conf.d/ssl.conf
+COPY etc/apache2/httpd.conf /etc/apache2/httpd.conf
 
 # fix a dompdf problem...
 # RUN apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/v3.13/community/ gnu-libiconv=1.15-r3

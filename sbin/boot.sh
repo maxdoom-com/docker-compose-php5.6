@@ -19,6 +19,7 @@ adduser -D -h /home/you -u ${UID} -G you -s /bin/bash you
 ## RUN APACHE
 ####################################################################
 
+mkdir /run/httpd
 httpd
 
 
