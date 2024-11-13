@@ -8,6 +8,8 @@ services:
             - ./etc/custom/php.ini:/etc/php/conf.d/custom-php.ini
             - ./etc/custom/apache.conf:/etc/apache2/conf.d/custom-apache.conf
             - ./etc/apache2/conf.d/vhosts.d:/etc/apache2/conf.d/vhosts.d
+            - ./localhost.direct.crt:/srv/ssl/localhost.direct.crt
+            - ./localhost.direct.key:/srv/ssl/.localhost.direct.key
     database:
         build: https://github.com/maxdoom-com/docker-compose-mysql10.5.git
         env_file: .env
